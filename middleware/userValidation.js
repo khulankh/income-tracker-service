@@ -1,11 +1,11 @@
 const UserDatabase = require('../models/userModel');
-// const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt")
 
 const validateInput = async (req, res, next) => {
     const body = req.body;
     const user = await UserDatabase.findOne({ email: body.email })
     if (user) {
-        res.status(400).send("email already taken")
+        res.status(400).send("Email already taken")
     } else {
         next()
     }
