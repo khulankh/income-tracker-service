@@ -10,20 +10,20 @@ const validateInput = async (req, res, next) => {
         next()
     }
 }
-// const validatePassword = async (req, res, next) => {
-//     const body = req.body
-//     const user = await UserDatabase.findOne({ email: body.email })
-//     if (user) {
-//         const isPasswordCorrect = bcrypt.compareSync(body.password, user.password)
-//         if (isPasswordCorrect) {
-//             next();
-//         } else {
-//             res.status(404).send("Password is incorrect")
-//         }
+const validatePassword = async (req, res, next) => {
+    const body = req.body
+    const user = await UserDatabase.findOne({ email: body.email })
+    if (user) {
+        const isPasswordCorrect = bcrypt.compareSync(body.password, user.password)
+        if (isPasswordCorrect) {
+            next();
+        } else {
+            res.status(404).send("Password is incorrect")
+        }
 
-//     } else {
-//         res.status(404).send('User Not Found')
-//     }
-// }
+    } else {
+        res.status(404).send('User Not Found')
+    }
+}
 
-module.exports = { validateInput }
+module.exports = { validateInput, validatePassword }

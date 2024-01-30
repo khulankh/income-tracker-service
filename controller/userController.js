@@ -14,4 +14,14 @@ const createUser = async (req, res) => {
         res.status(500).send('Internal Error')
     }
 }
-module.exports = { createUser }
+const loginUser = async (req, res) => {
+    const body = req.body;
+    const user = await UserDatabase.findOne({ email: body.email })
+    if (user) {
+        res.status(200).send({ userId: user._id })
+        console.log(user._id)
+    } else {
+        res.status(404).send("Not Found")
+    }
+}
+module.exports = { createUser,loginUser }
