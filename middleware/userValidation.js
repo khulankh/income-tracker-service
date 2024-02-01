@@ -10,6 +10,7 @@ const validateInput = async (req, res, next) => {
         next()
     }
 }
+
 const validatePassword = async (req, res, next) => {
     const body = req.body
     const user = await UserDatabase.findOne({ email: body.email })
