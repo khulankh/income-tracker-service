@@ -11,7 +11,7 @@ const IncomeSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['investment', 'food', 'bills', 'other']
+        enum: ["Food & Drinks", "Shopping", "Housing", "Transportation", "Vehicle", "Life & Entertainment", 'Communication, PC', "Financial expenses", 'Investments', "Income", "Others"]
     }
 })
 const IncomeModel = mongoose.model("transaction", IncomeSchema)
