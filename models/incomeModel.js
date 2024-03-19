@@ -4,7 +4,7 @@ const IncomeSchema = new mongoose.Schema({
     amount: Number,
     note: String,
     userId: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now() },
+    createdAt: { type: String, default: Date.now() },
     transactionType: {
         type: String,
         enum: ['income', 'expense']
