@@ -1,9 +1,10 @@
 const { Router } = require('express');
-const {getTransactions, createTransaction} = require('../controller/incomeController')
+const { getTransactions, createTransaction, deleteTransaction } = require('../controller/incomeController');
 
 const transactionRouter = Router();
 
-transactionRouter.post('/createTransaction', createTransaction)
-transactionRouter.get('/getTransactions', getTransactions)
+transactionRouter.post('/createTransaction', createTransaction);
+transactionRouter.get('/getTransactions', getTransactions);
+transactionRouter.delete('/deleteTransaction', deleteTransaction);
 
-module.exports = transactionRouter
+module.exports = transactionRouter;
