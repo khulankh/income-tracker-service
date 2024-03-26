@@ -3,8 +3,8 @@ const IncomeSchema = new mongoose.Schema({
     title: String,
     amount: Number,
     note: String,
-    userId: { type: String, required: true },
-    createdAt: { type: String, default: Date.now() },
+    userId: { type: String },
+    createdAt: { type:  String, default: Date.now().toString() },
     transactionType: {
         type: String,
         enum: ['income', 'expense']
