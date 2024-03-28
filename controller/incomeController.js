@@ -28,5 +28,16 @@ const deleteTransaction = async (req, res) => {
         res.status(500).send('Internal Error')
     }
 }
+    const updateTransaction = async (req, res) => {
+        const id = req.query.transactionId;
+        const body = req.body
+        try {
+            const updatedTransaction = await IncomeModel.findByIdAndUpdate(id, body, { new: true })
+            res.status(200).send(updatedTransaction)
+        } catch (err) {
+            console.log(err)
+            res.status(500).send(err)
+        }
+    }
 
-module.exports = { createTransaction, getTransactions, deleteTransaction }
+module.exports = { createTransaction, getTransactions, deleteTransaction, updateTransaction }
