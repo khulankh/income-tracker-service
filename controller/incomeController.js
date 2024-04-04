@@ -29,10 +29,12 @@ const deleteTransaction = async (req, res) => {
     }
 }
     const updateTransaction = async (req, res) => {
-        const id = req.query.transactionId;
+        const id = req.params.transactionId;
         const body = req.body
+        console.log(body)
         try {
             const updatedTransaction = await IncomeModel.findByIdAndUpdate(id, body, { new: true })
+            console.log(id)
             res.status(200).send(updatedTransaction)
         } catch (err) {
             console.log(err)
